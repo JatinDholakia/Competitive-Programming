@@ -1,4 +1,6 @@
 clear
 git add .
-git commit -a --allow-empty-message -m ''
+echo "Commit Message: "
+read msg
+git commit -a -m "$msg"
 git push origin master

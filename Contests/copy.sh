@@ -1,5 +1,4 @@
 clear
-cd Contests
 echo -n "Directory: "
 read dir
 mkdir $dir
