@@ -3,4 +3,4 @@ git add .
 echo "Commit Message: "
 read msg
 git commit -a -m "$msg"
-git push origin master
+git push -u origin master
