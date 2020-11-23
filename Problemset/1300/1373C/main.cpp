@@ -7,9 +7,22 @@ using namespace std;
 #define pb push_back
 #define print(vec) for(int i=0;i<vec.size();i++) cout<<vec[i]<<" ";
 #define pii pair<int,int>
+//=======================
 
 void solve() {
-
+    string s;
+    cin>>s;
+    int n = s.size();
+    int curr=0, mn=0;
+    ll ans = n;
+    For(i,0,n){
+        curr += (s[i]=='+')?1:-1;
+        if(curr<mn){
+            mn = curr;
+            ans += i+1;
+        }
+    }   
+    cout<<ans<<'\n';
 }
 
 int main() {

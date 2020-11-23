@@ -7,9 +7,29 @@ using namespace std;
 #define pb push_back
 #define print(vec) for(int i=0;i<vec.size();i++) cout<<vec[i]<<" ";
 #define pii pair<int,int>
+//=======================
 
 void solve() {
-
+    int n,k;
+    cin>>n>>k;
+    int s = 0;
+    int odd_count = 0;
+    int even_count = 0;
+    For(i,0,n){
+        int tmp;
+        cin>>tmp;
+        s+= tmp;
+        if(tmp%2 == 1) {
+            odd_count++;
+        }
+        else{
+            even_count++;
+        }
+    }
+    if((k==n && s%2==0) || odd_count == 0 || (even_count==0 && k%2==0)) cout<<"No"<<'\n';
+    else{
+        cout<<"Yes"<<'\n';
+    }
 }
 
 int main() {

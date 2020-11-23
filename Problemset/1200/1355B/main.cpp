@@ -7,9 +7,24 @@ using namespace std;
 #define pb push_back
 #define print(vec) for(int i=0;i<vec.size();i++) cout<<vec[i]<<" ";
 #define pii pair<int,int>
+//=======================
 
 void solve() {
-
+    int n;
+    cin>>n;
+    vector<int> v(n);
+    For(i,0,n){
+        cin>>v[i];
+    }
+    sort(v.begin(),v.end());
+    int ans = 0, curr = 0;
+    For(i,0,n){
+        if(++curr==v[i]){
+            ans++;
+            curr=0;
+        }
+    }
+    cout<<ans<<'\n';
 }
 
 int main() {

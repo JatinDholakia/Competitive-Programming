@@ -7,9 +7,15 @@ using namespace std;
 #define pb push_back
 #define print(vec) for(int i=0;i<vec.size();i++) cout<<vec[i]<<" ";
 #define pii pair<int,int>
+//=======================
 
 void solve() {
-
+    ll a,b,c;
+    cin>>a>>b>>c;
+    int x,y;
+    x = (a<c)?1:-1;
+    y = (a*b>c)?b:-1;
+    cout<<x<<" "<<y<<'\n';
 }
 
 int main() {

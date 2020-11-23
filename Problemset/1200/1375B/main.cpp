@@ -7,8 +7,36 @@ using namespace std;
 #define pb push_back
 #define print(vec) for(int i=0;i<vec.size();i++) cout<<vec[i]<<" ";
 #define pii pair<int,int>
+//=======================
+
+int n,m;
+int neigh(int i, int j){
+    return 4-(i==n||i==1)-(j==m||j==1);
+}
 
 void solve() {
+    cin>>n>>m;
+    int ans = 1;
+    For(i,1,n+1){
+        For(j,1,m+1){
+            int tmp; cin>>tmp;
+            if(tmp>neigh(i,j)){
+                ans = 0;
+            }
+        }
+    }
+    if(ans<=0){
+        cout<<"NO"<<'\n';
+    }    
+    else{
+    cout<<"YES"<<'\n';
+    For(i,1,n+1){
+        For(j,1,m+1){
+            cout<<neigh(i,j)<<" ";
+        }
+        cout<<'\n';
+    }
+    }
 
 }
 

@@ -7,9 +7,32 @@ using namespace std;
 #define pb push_back
 #define print(vec) for(int i=0;i<vec.size();i++) cout<<vec[i]<<" ";
 #define pii pair<int,int>
+//=======================
 
 void solve() {
-
+    int n;
+    cin>>n;
+    vector<int> v(n);
+    For(i,0,n){
+        cin>>v[i];
+    }
+    int ans1 = 0, ans2 = 0;
+    for(int i=n-2;i>=0;i--){
+        if(v[i]<v[i+1]) {
+            ans1 = i+1;
+            break;
+        }
+    }
+    bool flag = 0;
+    for(int i=n-2;i>=0;i--){
+        if(!flag && v[i]<v[i+1]) flag=1;
+        else if(flag && v[i]>v[i+1]) {
+            ans2 = i+1;
+            break;
+        }
+    }
+    // cout<<ans1<<" "<<ans2<<'\n';
+    cout<<min(ans1,ans2)<<'\n';
 }
 
 int main() {

@@ -7,9 +7,20 @@ using namespace std;
 #define pb push_back
 #define print(vec) for(int i=0;i<vec.size();i++) cout<<vec[i]<<" ";
 #define pii pair<int,int>
+//=======================
 
 void solve() {
-
+    string s;
+    cin>>s;
+    int c0=0,c1=0;
+    for(char c:s){
+        if(c=='0') c0++;
+        else c1++;
+    }
+    if(min(c0,c1)%2==1) cout<<"DA"<<'\n';
+    else{
+        cout<<"NET"<<'\n';
+    }
 }
 
 int main() {

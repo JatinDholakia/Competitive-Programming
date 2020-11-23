@@ -7,8 +7,19 @@ using namespace std;
 #define pb push_back
 #define print(vec) for(int i=0;i<vec.size();i++) cout<<vec[i]<<" ";
 #define pii pair<int,int>
+//=======================
 
 void solve() {
+    int n;
+    cin>>n;
+    string s(200,'a');
+    cout<<s<<'\n';
+    For(i,0,n){
+        int tmp;
+        cin>>tmp;
+        s[tmp] = (s[tmp]=='a')?'b':'a';
+        cout<<s<<'\n';
+    }
 
 }
 
