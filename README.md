@@ -1,2 +1,2 @@
 # Codeforces
-Consists of Contests' solutions and up-solved problems.
+Solutions to my codeforces contests and problemset.
