@@ -11,18 +11,41 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin>>n;
+    vector<ll> v(n+1),s(n+1);
+    For(i,1,n+1){
+        cin>>v[i];
+        s[i] = v[i];
+        v[i] += v[i-1];
+    }
+    sort(s.begin(),s.end());
+    For(i,1,n+1){
+        s[i] += s[i-1];
+    }
+    int m;
+    cin>>m;
+    For(i,0,m){
+        int type,l,r;
+        cin >> type >> l >> r;
+        if(type==1){
+            cout<<(v[r]-v[l-1])<<'\n';
+        }
+        else{
+            cout<<(s[r]-s[l-1])<<'\n';
+        }
+    }
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+    cin.tie(NULL);
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

@@ -11,18 +11,30 @@ using namespace std;
 #define S second
 
 void solve() {
-
+string s;
+cin>>s;
+ll len=s.size();
+char a=s[0];
+For(i,0,len)
+{
+    if(s[i]>'4')
+        {char c='9'-s[i]+'0';
+    s[i]=c;}
+}
+if(s[0]=='0')
+    s[0]=a;
+cout<<s<<endl;
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+    cin.tie(NULL);
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

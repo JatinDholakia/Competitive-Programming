@@ -11,7 +11,26 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin>>n;
+    vector<pii> dates;
+    For(i, 0, n){
+        int st, end;
+        cin >> st >> end;
+        dates.pb({st, 1});
+        dates.pb({end, -1});
+    }
+    sort(dates.begin(), dates.end());
+    int ans1 = 0, ans2 = 0;
+    int c = 0;
+    For(i, 0, dates.size()){
+        c += dates[i].S;
+        if(c > ans1){
+            ans1 = c;
+            ans2 = dates[i].F;
+        }
+    }
+    cout << ans2 << " " << ans1;
 }
 
 int main() {
@@ -22,7 +41,7 @@ int main() {
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

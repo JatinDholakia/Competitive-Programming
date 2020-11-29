@@ -5,18 +5,37 @@ using namespace std;
 #define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
 #define For(i,x,n) for(int i=x;i<n;i++)
 #define pb push_back
-#define print(vec) For(i,0,vec.size()) {cout<<vec[i]<<" ";} cout<<'\n';
+#define print(vec) for(int i=0;i<vec.size();i++) cout<<vec[i]<<" ";
 #define pii pair<int,int>
-#define F first
-#define S second
 
 void solve() {
-
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    string a = "1",b = "1";
+    bool flag = 0;
+    For(i,1,n){
+        if(flag){
+            a += '0';
+            b += s[i];
+        }
+        else if(s[i]=='1'){
+            a += '1';
+            b += '0';
+            flag = 1;
+        }
+        else{
+            a += (s[i]=='2')?'1':'0';
+            b += (s[i]=='2')?'1':'0';
+        }
+    }
+    cout<<a<<'\n'<<b<<'\n';
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+    cin.tie(NULL);
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
         // freopen("output.txt","w",stdout);
@@ -26,6 +45,5 @@ int main() {
     while(t--) {
       solve();
     }
-
     return 0;
 }
