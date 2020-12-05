@@ -1,5 +1,5 @@
 clear
-echo -n "Directory: "
+echo -n "Contest: "
 read dir
 mkdir $dir
 cd $dir
