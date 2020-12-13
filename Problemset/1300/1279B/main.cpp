@@ -11,7 +11,22 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, s;
+    cin >> n >> s;
+    vector<int> a(n);
+    vector<ll> pre(n);
+    For(i, 0, n){
+        cin >> a[i];
+        pre[i] = a[i];
+        if(i) pre[i] += pre[i-1];
+    }
+    int idx = upper_bound(pre.begin(), pre.end(), s) - pre.begin();
+    if(idx == n){
+        cout << 0 << '\n';
+        return;
+    }
+    int elem = (max_element(a.begin(), a.begin() + idx+1) - a.begin());
+    cout << (elem + 1) << '\n';
 }
 
 int main() {

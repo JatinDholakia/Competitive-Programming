@@ -11,7 +11,19 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    string s;
+    cin >> s;
+    int n = s.size();
+    char c = 'z';
+    For(i, 0, n){
+        if(c < s[i]){
+            cout << "Ann" << '\n';
+        }
+        else{
+            cout << "Mike" << '\n';
+        }
+        c = min(c, s[i]);
+    }   
 }
 
 int main() {
@@ -22,7 +34,7 @@ int main() {
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

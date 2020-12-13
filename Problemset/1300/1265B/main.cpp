@@ -11,7 +11,36 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin >> n;
+    int l = 0, r = n - 1;
+    vector<int> a(n), idx(n+1);
+    For(i, 0, n){
+        cin >> a[i];
+        idx[a[i]] = i;
+    }
+    vector<bool> ans(n);
+    ans[n-1] = 1;
+    int min_dropped = n+1;
+    for(int i=n-2; i >= 0; i--){
+        min_dropped = min(max(a[l], a[r]), min_dropped);
+        if(min_dropped > i+1){
+            ans[i] = 1;
+        }
+        else{
+            ans[i] = 0;
+        }
+        if(a[l] > a[r]){
+            l++;
+        }
+        else{
+            r--;
+        }
+    }
+    for(int i=0; i < n; i++){
+        cout << ans[i];
+    }
+    cout << '\n';
 }
 
 int main() {

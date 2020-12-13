@@ -11,7 +11,21 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    For(i, 0, n){
+        cin >> a[i];
+    }
+    ll x = 0;
+    For(i, 1, n){
+        x += abs(a[i] - a[i-1]);
+    }
+    int y = max(abs(a[1] - a[0]), abs(a[n-1] - a[n-2]));
+    For(i, 1, n-1){
+        y = max(abs(a[i] - a[i-1]) + abs(a[i] - a[i+1]) - abs(a[i-1] - a[i+1]), y);
+    }
+    cout << (x - y) << '\n';
 }
 
 int main() {

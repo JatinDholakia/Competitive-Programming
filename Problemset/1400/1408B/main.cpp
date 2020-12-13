@@ -11,7 +11,21 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, k;
+    cin >> n >> k;
+    unordered_set<int> s;
+    For(i, 0, n){
+        int tmp;
+        cin >> tmp;
+        s.insert(tmp);
+    }
+    int diff = s.size();
+    if(diff <= k) cout << 1 << '\n';
+    else if(k == 1) cout << -1 << '\n';
+    else{
+        int ans = ceil((diff-k)*1.0/(k-1));
+        cout << ans+1 << '\n';
+    }
 }
 
 int main() {

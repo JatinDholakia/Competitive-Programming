@@ -11,7 +11,24 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+    int mx = 0;
+    map<int,int> need;
+    For(i, 0, n){
+        cin >> a[i];
+        if(a[i] % k == 0) continue;
+        need[k - a[i] % k]++;
+        mx = max(mx, need[k - a[i] % k]);
+    }
+    ll ans = 0;
+    for(auto it : need){
+        if(it.S == mx){
+            ans = k * 1ll * (it.S - 1) + it.F + 1;
+        }
+    }
+    cout << ans << '\n';
 }
 
 int main() {

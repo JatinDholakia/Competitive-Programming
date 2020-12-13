@@ -11,7 +11,29 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin >> n;
+    vector<ll> a(n);
+    ll s = 0;
+    bool ok = 1;
+    For(i, 0, n){
+        cin >> a[i];
+        s += a[i];
+        if(s <= 0) {
+            ok = 0;
+        }
+    }
+    s = 0;
+    for(int i = n - 1; i >= 0; i--){
+        s += a[i];
+        if(s <= 0) ok = 0;
+    }
+    if(ok){
+        cout << "YES" << '\n';
+    }
+    else{
+        cout << "NO" << '\n';
+    }
 }
 
 int main() {

@@ -11,7 +11,29 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin >> n;
+    unordered_map<int,int> mp, cnt;
+    For(i, 0, n){
+        int tmp;
+        cin >> tmp;
+        mp[tmp] = i;
+    }
+    For(i, 0, n){
+        int tmp;
+        cin >> tmp;
+        if(mp[tmp] - i < 0){
+            cnt[mp[tmp] - i + n]++;
+        }
+        else{
+            cnt[mp[tmp] - i]++;
+        }
+    }
+    int ans = 0;
+    for(auto x : cnt){
+        ans = max(ans, x.S);
+    }
+    cout << ans << '\n';
 }
 
 int main() {
@@ -22,7 +44,7 @@ int main() {
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

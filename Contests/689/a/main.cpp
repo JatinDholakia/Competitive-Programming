@@ -11,7 +11,21 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, k;
+    cin >> n >> k;
+    int c = 0;
+    vector<char> ch{'a', 'b', 'c'};
+    int idx = 0;
+    string s = "";
+    For(i, 0, n){
+        if(c == k){
+            idx++;
+            c = 0;
+        }
+        s += ch[idx % 3];
+        c++;
+    }
+    cout << s << '\n';
 }
 
 int main() {

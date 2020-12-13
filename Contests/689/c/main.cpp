@@ -11,7 +11,33 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n);
+    For(i, 0, n){
+        cin >> a[i];
+    }
+    int idx = -1;
+    for(int i = n-1; i >= 0; i--){
+        if(a[i] != i+1){
+            idx = i;
+            break;
+        }
+    }
+    idx++;
+    double neg = 1;
+    For(i, 0, m){
+        int r;
+        double p;
+        cin >> r >> p;
+        if(r >= idx){
+            neg *= 1-p;
+        }   
+    }
+    if(idx == 0){
+        neg = 0;
+    }
+    cout << (1-neg) << '\n';
 }
 
 int main() {

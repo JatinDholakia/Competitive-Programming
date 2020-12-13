@@ -11,7 +11,19 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin >> n;
+    vector<vector<ll>> mat(n, vector<ll>(n));
+    For(i, 0, n){
+        For(j, 0, n){
+            cin >> mat[i][j];
+        }
+    }
+    int a = sqrt((mat[0][1] * mat[0][2]) / mat[1][2]);
+    cout << a << " ";
+    For(i, 1, n){
+        cout << (mat[0][i] / a) << " ";
+    }
 }
 
 int main() {
@@ -22,7 +34,7 @@ int main() {
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

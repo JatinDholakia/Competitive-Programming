@@ -10,8 +10,35 @@ using namespace std;
 #define F first
 #define S second
 
-void solve() {
+bool isPrime(int x){
+    for(int i = 2; i < min(x, (int)5e4); i++){
+        if(x % i == 0)
+            return 0;
+    }
+    return 1;
+}
 
+void solve() {
+    int n;
+    cin >> n;
+    vector<string> ans = {"Ashishgup\n", "FastestFinger\n"};
+    if(n == 1){
+        cout << ans[1];
+        return;
+    }
+    if(n > 2 && n % 2 == 0){
+        if((n & (n-1)) == 0)
+            cout << ans[1];
+        
+        else if(n % 4 != 0 && isPrime(n / 2))
+            cout << ans[1];
+        else{
+            cout << ans[0];
+        }
+    }
+    else{
+        cout << ans[0];
+    }
 }
 
 int main() {

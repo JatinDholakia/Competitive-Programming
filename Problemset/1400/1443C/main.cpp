@@ -9,9 +9,33 @@ using namespace std;
 #define pii pair<int,int>
 #define F first
 #define S second
+const int mxn = 2e5 + 5;
+int a[mxn], b[mxn], idx[mxn];
+
+bool cmp(int x, int y){
+    return a[x] < a[y];
+}
 
 void solve() {
+    int n;
+    cin >> n;
+    ll s = 0;
+    For(i, 0, n){
+        cin >> a[i];
+        idx[i] = i;
+    }
+    For(i, 0, n){
+        cin >> b[i];
+        s += b[i];
+    }
+    sort(idx, idx + n, cmp);
 
+    ll ans = s;
+    For(i, 0, n){
+        s -= b[idx[i]];
+        ans = min(ans, max(1ll*a[idx[i]], s));
+    }
+    cout << ans << '\n';
 }
 
 int main() {

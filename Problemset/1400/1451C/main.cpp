@@ -11,7 +11,34 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, k;
+    cin >> n >> k;
+    string a, b;
+    cin >> a >> b;
+    vector<int> c1(26), c2(26);
+    For(i, 0, n){
+        c1[a[i]-'a']++;
+        c2[b[i]-'a']++;
+    }
+    int c = 0;
+    bool ok = 1;
+    For(i, 0, 26){
+        if(c2[i] > c1[i]){
+            if(c < c2[i] - c1[i] || (c2[i] - c1[i]) % k != 0) ok = 0;
+            else{
+                c -= c2[i] - c1[i];
+            }
+        }
+        else if(c2[i] < c1[i]){
+            c += k*((c1[i] - c2[i])/k);
+        }
+    }
+    if(ok){
+        cout << "YES" << '\n';
+    }
+    else{
+        cout << "NO" << '\n';
+    }
 }
 
 int main() {

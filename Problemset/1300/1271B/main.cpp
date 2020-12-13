@@ -13,44 +13,54 @@ using namespace std;
 void solve() {
     int n;
     cin >> n;
-    vector<int> ans(3);
-    For(i, 2, 1e5){
-        if(n % i == 0){
-            ans[0] = i;
-            break;
+    int c1 = 0, c2 = 0;
+    vector<bool> a(n);
+    For(i, 0, n){
+        char tmp;
+        cin >> tmp;
+        if(tmp == 'B'){
+            c1++;
+            a[i] = 0;
+        }
+        else{
+            c2++;
+            a[i] = 1;
         }
     }
-    if(ans[0]) n /= ans[0];
-    For(i, 2, 1e5){
-        if(n % i == 0 && i != ans[0]){
-            ans[1] = i;
-            break;
+    if(c1 % 2 == 1 && c2 % 2 == 1){
+        cout << -1 << '\n';
+        return;
+    }
+    vector<int> ans;
+    For(i, 0, n-1){
+        if(a[i] == 1){
+            ans.pb(i+1);
+            a[i] = !a[i];
+            a[i+1] = !a[i+1];
         }
     }
-    if(ans[1]) ans[2] = n / ans[1];
-    unordered_set<int> s;
-    For(i, 0, 3) s.insert(ans[i]);
-    if(ans[0] > 1 && ans[1] > 1 && ans[2] > 1 && s.size()==3){
-        cout << "YES\n";
-        print(ans);
+    if(n % 2 == 1 && a[n-1] == 1){
+        For(i, 0, n-1){
+            if(i % 2 == 0){
+                ans.pb(i + 1);
+            }
+        }
     }
-    else{
-        cout << "NO\n";
-    }
+    cout << ans.size() << '\n';
+    print(ans);
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+    cin.tie(0); cout.tie(0);
     #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin);
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }
-
     return 0;
 }

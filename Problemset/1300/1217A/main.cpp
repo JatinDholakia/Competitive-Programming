@@ -11,7 +11,10 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int x, y, z;
+    cin >> x >> y >> z;
+    int ans = max(0, (y+z-x+2)/2);
+    cout << max(z-ans+1,0) << '\n';
 }
 
 int main() {

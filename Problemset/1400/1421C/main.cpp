@@ -11,7 +11,10 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    string s;
+    cin >> s;
+    int n = s.size();
+    cout << "3\nL 2\nR 2\nR " << (2*n-1);
 }
 
 int main() {
@@ -22,7 +25,7 @@ int main() {
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

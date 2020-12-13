@@ -11,7 +11,22 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, x;
+    cin >> n >> x;
+    vector<int> a(n);
+    For(i, 0, n){
+        cin >> a[i];
+    }
+    sort(a.rbegin(), a.rend());
+    int ans = 0, curr = 1;
+    For(i, 0, n){
+        if(curr * a[i] >= x){
+            ans++;
+            curr = 0;
+        }
+        curr++;
+    }
+    cout << ans << '\n';
 }
 
 int main() {

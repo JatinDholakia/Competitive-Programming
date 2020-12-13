@@ -11,7 +11,34 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    bool ok = 1, inv = 0;
+    For(i, 0, n){
+        cin >> a[i];
+    }
+    int i;
+    for(i = 0; i < n; i++){
+        if(a[i] < i){
+            inv = 1;
+            break;
+        }
+    }
+    for(int j = n-1; j >= i; j--){
+        if(a[j] < n-1-j){
+            ok = 0;
+        }
+    }
+    if(n % 2 == 0 && a[n/2] == n/2-1 &&  a[n/2 - 1]==n/2-1){
+        ok = 0;
+    }
+    if(ok){
+        cout << "Yes" << '\n';
+    }
+    else{
+        cout << "No" << '\n';
+    }
 }
 
 int main() {

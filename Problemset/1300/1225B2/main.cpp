@@ -11,7 +11,29 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, k, d;
+    cin >> n >> k >> d;
+    vector<int> a(n);
+    For(i, 0, n){
+        cin >> a[i];
+    }
+    unordered_map<int,int> mp;
+    int l = 0, r = d;
+    For(i, 0, d){
+        mp[a[i]]++;
+    }
+    int ans = mp.size();
+    For(i, 0, n-d){
+        mp[a[l+i]]--;
+        mp[a[r+i]]++;
+        if(mp[a[l+i]] == 0){
+            mp.erase(a[l+i]);
+        }
+        if(mp.size() < ans){
+            ans = mp.size();
+        }
+    }   
+    cout << ans << '\n';
 }
 
 int main() {

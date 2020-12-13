@@ -11,7 +11,34 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n), w(k);
+    For(i, 0, n){
+        cin >> a[i];
+    }
+    For(i, 0, k){
+        cin >> w[i];
+        w[i] -= 1;
+    }
+    sort(a.begin(), a.end());
+    sort(w.begin(), w.end());
+    ll ans = 0;
+    For(i, 0, k){
+        ans += a[n-1-i];
+        if(w[i] == 0){
+            ans += a[n-1-i];
+        }
+    }
+    reverse(w.begin(), w.end());
+    int j = 0;
+    For(i, 0, k){
+        if(w[i] != 0){
+            ans += a[j];
+            j += w[i];
+        }
+    }
+    cout << ans << '\n';
 }
 
 int main() {

@@ -11,7 +11,13 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin >> n;
+    vector<int> a(n), lmin(n);
+    For(i, 0, n) {
+        cin >> a[i];
+    }
+    cout << ((a[0] < a[n-1])?"YES\n":"NO\n");
 }
 
 int main() {

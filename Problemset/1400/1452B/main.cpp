@@ -11,7 +11,25 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    int mx = INT_MIN;
+    For(i, 0, n){
+        cin >> a[i];
+        mx = max(mx, a[i]);
+    }
+    ll rem = 0;
+    For(i, 0, n){
+        rem += mx - a[i];
+    }
+    rem -= mx;
+    if(rem < 0){
+        int k = floor(rem /(double)(n-1));       
+        k *= -1;
+        rem += k*(n-1);
+    }
+    cout << rem << '\n';
 }
 
 int main() {

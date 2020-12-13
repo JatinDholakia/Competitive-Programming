@@ -11,7 +11,21 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n;
+    cin >> n;
+    For(i, 1, n+1){
+        bool ok = 1;
+        For(j, 0, n){
+            if(ok){
+                cout << (j*n + i) << " ";
+            }
+            else{
+                cout << (j*n + n+1-i) << " ";
+            }
+            ok = !ok;
+        }
+        cout << '\n';
+    }
 }
 
 int main() {
@@ -22,7 +36,7 @@ int main() {
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

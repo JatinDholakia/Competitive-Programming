@@ -11,7 +11,30 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, k;
+    cin >> n >> k;
+    deque<int> q;
+    set<int> st;
+    For(i, 0, n){
+        int tmp;
+        cin >> tmp;
+        if(st.find(tmp) != st.end()) continue;
+        else if(q.size() < k){
+            q.push_back(tmp);
+            st.insert(tmp);
+        }
+        else{
+            st.erase(q.front());
+            q.pop_front();
+            q.push_back(tmp);
+            st.insert(tmp);
+        }
+    }
+    cout << q.size() << '\n';
+    while(!q.empty()){
+        cout << q.back() << " ";
+        q.pop_back();
+    }
 }
 
 int main() {
@@ -22,7 +45,7 @@ int main() {
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

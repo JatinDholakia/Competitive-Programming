@@ -11,7 +11,26 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    int n, r;
+    cin >> n >> r;
+    vector<int> x(n);
+    For(i, 0, n){
+        cin >> x[i];
+    }
+    sort(x.begin(), x.end());
+    n = unique(x.begin(), x.end()) - x.begin();
+    int sub = 0;
+    int ans = 0;
+    for(int i = n-1; i >= 0; i--){
+        if(x[i] - sub <= 0){
+            break;
+        }
+        else{
+            sub += r;
+            ans++;
+        }
+    }
+    cout << ans << '\n';
 }
 
 int main() {

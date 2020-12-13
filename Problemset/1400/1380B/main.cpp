@@ -11,7 +11,30 @@ using namespace std;
 #define S second
 
 void solve() {
-
+    string s;
+    cin >> s;
+    int a = 0, b = 0, c = 0;
+    For(i, 0, s.size()){
+        if(s[i] == 'R'){
+            c++;
+        }
+        else if(s[i] == 'S'){
+            a++;
+        }
+        else{
+            b++;
+        }
+    }
+    int mx = max(a,max(b,c));
+    if(mx == a){
+        cout << string(s.size(), 'R') << '\n';
+    }
+    else if(mx == b){
+        cout << string(s.size(), 'S') << '\n';
+    }
+    else{
+        cout << string(s.size(), 'P') << '\n';
+    }
 }
 
 int main() {
