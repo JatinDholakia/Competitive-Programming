@@ -14,7 +14,20 @@ const int mod = 1'000'000'007;
 const int INF = 2'000'000'000;
 
 void solve() {
-
+    ll l, r, m;
+    cin >> l >> r >> m;
+    ll k = r - l;
+    For(a, l, r+1){
+        ll tmp = m % a;
+        if(a - tmp <= k) { 
+            cout << a << " " <<  l << " " << (l + a - tmp) << '\n';
+            return;
+        }
+        else if(tmp <= k){
+            cout << a << " " <<  (l + tmp) << " " << l << '\n';
+            return;
+        }
+    }
 }
 
 int main() {

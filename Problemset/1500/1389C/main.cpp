@@ -14,7 +14,30 @@ const int mod = 1'000'000'007;
 const int INF = 2'000'000'000;
 
 void solve() {
-
+    string s;
+    cin >> s;
+    int n = s.size();
+    int mx = 0;
+    for(char i = '0'; i <= '9'; i++){
+        for(char j = '0'; j <= '9'; j++){
+            bool first = 1;
+            int curr = 0;
+            For(k, 0, n){
+                if(first && s[k] == i){
+                    curr++;
+                    first = !first;
+                }
+                else if(!first && s[k] == j){
+                    curr++;
+                    first = !first;
+                }
+            }
+            if(i != j) 
+                curr -= (curr & 1);
+            mx = max(mx, curr);
+        }
+    }
+    cout << (n - mx) << '\n';
 }
 
 int main() {

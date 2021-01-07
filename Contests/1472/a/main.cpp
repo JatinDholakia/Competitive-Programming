@@ -1,3 +1,4 @@
+/* Hello 2021  */
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
@@ -14,7 +15,18 @@ const int mod = 1'000'000'007;
 const int INF = 2'000'000'000;
 
 void solve() {
-
+    int w, h, n;
+    cin >> w >> h >> n;
+    ll ans = 1;
+    while(w % 2 == 0){
+        w /= 2;
+        ans *= 2;
+    }
+    while(h % 2 == 0){
+        h /= 2;
+        ans *= 2;
+    }
+    cout << ((ans >= n) ? "YES" : "NO") << '\n';
 }
 
 int main() {

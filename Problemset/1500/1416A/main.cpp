@@ -9,12 +9,28 @@ using namespace std;
 #define pii pair<int,int>
 #define F first
 #define S second
-#define set(x) cout.precision(x);cout << fixed;
-const int mod = 1'000'000'007;
-const int INF = 2'000'000'000;
 
 void solve() {
-
+    int n;
+    cin >> n;
+    vector<int> a(n + 1);
+    vector<vector<int>> ind(n + 1, {0});
+    For(i, 1, n + 1) cin >> a[i];
+    For(i, 1, n + 1) ind[a[i]].pb(i);
+    For(i, 1, n + 1) ind[i].pb(n + 1);
+    vector<int> ans(n + 2, n + 1);
+    For(i, 1, n+1){
+        int mx = 0;
+        For(j, 0, ind[i].size() - 1){
+            mx = max(mx, ind[i][j + 1] - ind[i][j] - 1);
+        }
+        ans[mx + 1] = min(ans[mx + 1], i);
+    }
+    For(i, 1, n + 1){
+        cout << (ans[i] == n + 1 ? -1 : ans[i]) << " ";
+        ans[i + 1] = min(ans[i], ans[i + 1]);
+    }
+    cout << '\n';
 }
 
 int main() {

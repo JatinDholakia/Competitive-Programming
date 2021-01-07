@@ -12,9 +12,26 @@ using namespace std;
 #define set(x) cout.precision(x);cout << fixed;
 const int mod = 1'000'000'007;
 const int INF = 2'000'000'000;
+string s;
+int cost(int l, int r, char c){
+    int mid = (l + r) / 2;
+    int tmp1 = 0, tmp2 = 0;
+    For(i, l, mid + 1){
+        if(s[i] != c) tmp1++;
+    }
+    For(i, mid + 1, r + 1){
+        if(s[i] != c) tmp2++;
+    }
+    if(l == r) return tmp1;
+    return min(tmp1 + cost(mid + 1, r, c + 1), tmp2 + cost(l, mid, c + 1));
+}
 
 void solve() {
-
+    char c = 'a';
+    int n;
+    cin >> n >> s;
+    int l = 0, r = n - 1;
+    cout << cost(l, r, c) << '\n';
 }
 
 int main() {

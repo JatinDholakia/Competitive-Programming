@@ -8,13 +8,28 @@ using namespace std;
 #define print(vec) For(i,0,vec.size()) {cout<<vec[i]<<" ";} cout<<'\n';
 #define pii pair<int,int>
 #define F first
-#define S second
-#define set(x) cout.precision(x);cout << fixed;
-const int mod = 1'000'000'007;
-const int INF = 2'000'000'000;
+#define S second    
 
 void solve() {
-
+    int n, x;
+    cin >> n >> x;
+    vector<int> a(n);
+    int c = 0;
+    int sum = 0;
+    For(i, 0, n){
+        cin >> a[i];
+        sum += a[i];
+        if(a[i] == x) c++;
+    }
+    if(c == n){
+        cout << 0 << '\n';
+        return;
+    }
+    if(c || sum == n * x){
+        cout << 1 << '\n';
+        return;
+    }
+    cout << 2 << '\n';
 }
 
 int main() {

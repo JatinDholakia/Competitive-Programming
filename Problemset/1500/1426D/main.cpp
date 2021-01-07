@@ -9,12 +9,27 @@ using namespace std;
 #define pii pair<int,int>
 #define F first
 #define S second
-#define set(x) cout.precision(x);cout << fixed;
-const int mod = 1'000'000'007;
-const int INF = 2'000'000'000;
 
 void solve() {
-
+    int n;
+    cin >> n;
+    int ans = 0;
+    vector<ll> a(n+1);
+    unordered_set<ll> st;
+    ll curr = 0;
+    st.insert(curr);
+    For(i, 1, n+1){
+        cin >> a[i];
+        curr += a[i];
+        if(st.find(curr) != st.end()){
+            ans++;
+            st.clear();
+            st.insert(0);
+            curr = a[i];
+        }
+        st.insert(curr);
+    }
+    cout << ans << '\n';
 }
 
 int main() {
@@ -25,7 +40,7 @@ int main() {
         // freopen("output.txt","w",stdout);
     #endif
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
       solve();
     }

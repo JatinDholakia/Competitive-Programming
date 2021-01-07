@@ -14,7 +14,14 @@ const int mod = 1'000'000'007;
 const int INF = 2'000'000'000;
 
 void solve() {
-
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    string patt = "abacaba";
+    int m = patt.size();
+    vector<int> lps(m);
+    
 }
 
 int main() {

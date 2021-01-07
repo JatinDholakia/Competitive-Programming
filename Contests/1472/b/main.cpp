@@ -1,3 +1,4 @@
+/* Hello 2021  */
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
@@ -14,7 +15,27 @@ const int mod = 1'000'000'007;
 const int INF = 2'000'000'000;
 
 void solve() {
-
+    int n;
+    cin >> n;
+    int ones = 0, twos = 0;
+    For(i, 0, n){
+        int tmp;
+        cin >> tmp;
+        if(tmp == 1) ones++;
+        else twos++;
+    }
+    int sum = ones + twos * 2;
+    if(sum % 2 == 1){
+        cout << "NO\n";
+        return;
+    }
+    sum /= 2;
+    if(sum % 2 == 1 && ones == 0){
+        cout << "NO\n";
+    }
+    else{
+        cout << "YES\n";
+    }
 }
 
 int main() {

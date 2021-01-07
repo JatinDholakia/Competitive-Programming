@@ -14,7 +14,25 @@ const int mod = 1'000'000'007;
 const int INF = 2'000'000'000;
 
 void solve() {
-
+    string s;
+    cin >> s;
+    int x, n;
+    n = s.size();
+    cin >> x;
+    string w(n, '1');
+    For(i, 0, n){
+        if(s[i] == '0'){
+            if(i - x >= 0) w[i - x] = '0';
+            if(i + x < n) w[i + x] = '0';
+        }
+    }
+    bool ok = 1;
+    For(i, 0, n) {
+        if(s[i] == '1'){
+            ok &= (i - x >= 0 && w[i - x] == '1') || (i + x < n && w[i + x] == '1');
+        }
+    }
+    cout << (ok ? w : "-1") << '\n';
 }
 
 int main() {

@@ -9,12 +9,27 @@ using namespace std;
 #define pii pair<int,int>
 #define F first
 #define S second
-#define set(x) cout.precision(x);cout << fixed;
-const int mod = 1'000'000'007;
-const int INF = 2'000'000'000;
+
+bool check(ll n, ll s){
+    ll sum = 0;
+    while(n){
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum <= s;
+}
 
 void solve() {
-
+    ll n, s;
+    cin >> n >> s;
+    ll curr = 10;
+    ll ans = 0;
+    while(!check(n, s)){
+        ans += curr - (n % curr);
+        n += curr - (n % curr);
+        curr *= 10;
+    }
+    cout << ans << '\n';
 }
 
 int main() {
