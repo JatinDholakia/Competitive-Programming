@@ -7,7 +7,8 @@ mkdir -p $dif
 cd $dif
 mkdir $prob
 cd $prob
-cp ../../../main.cpp .
+cp ../../../../template.cpp .
+mv template.cpp main.cpp
 touch input.txt
 code input.txt
 code main.cpp
