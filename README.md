@@ -1,3 +1,3 @@
-# Codeforces
-Profile : https://codeforces.com/profile/jatin_dholakia
-Solutions to my codeforces contests and problemset.
+# Competitive Programming
+Solutions to my competitive programming contests and problems solved.
+Codeforces : https://codeforces.com/profile/jatin_dholakia

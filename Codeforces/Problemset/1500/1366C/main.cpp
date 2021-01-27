@@ -14,14 +14,24 @@ const int mod = 1'000'000'007;
 const int INF = 2'000'000'000;
 
 void solve() {
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;
-    string patt = "abacaba";
-    int m = patt.size();
-    vector<int> lps(m);
-    
+	int n, m;
+	cin >> n >> m;
+	vector<vector<int> > a(n, vector<int>(m));
+	vector<vector<int> > cnt(n + m - 1, vector<int>(2));
+    For(i, 0, n){
+        For(j, 0, m){
+			cin >> a[i][j];
+            cnt[i + j][a[i][j]]++;
+        }
+    }
+	int ans = 0;
+	for(int i = 0; i <= n + m - 2; i++)
+	{
+		int j = n + m - 2 - i;
+		if(i <= j) continue;
+		ans += min(cnt[i][0] + cnt[j][0], cnt[i][1] + cnt[j][1]);
+	}
+	cout << ans << endl;
 }
 
 int main() {
