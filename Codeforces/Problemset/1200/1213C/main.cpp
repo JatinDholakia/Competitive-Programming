@@ -14,7 +14,22 @@ const int mod = 1000000007;
 const int INF = 2000000000;
 
 void solve() {
-	
+	ll n, m;
+	cin >> n >> m;
+	vector<ll> lastDigits(11);
+	For(i, 1, 11) {
+		lastDigits[i] = (m * i) % 10;
+	}
+	ll maxMultiplier = n / m;
+	ll multiplier = maxMultiplier / 10;
+	ll sum = 0;
+	For(i, 1, 11) {
+		sum += lastDigits[i] * multiplier;
+	}
+	For(i, 1, maxMultiplier % 10 + 1) {
+		sum += lastDigits[i];
+	}
+	cout << sum << '\n';
 }
 
 int main() {

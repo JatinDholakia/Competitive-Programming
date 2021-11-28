@@ -14,7 +14,39 @@ const int mod = 1000000007;
 const int INF = 2000000000;
 
 void solve() {
-	
+	int n;
+	cin >> n;
+	vector<int> q(n), ans(n), vis(n+1);
+	For(i, 0, n) {
+		cin >> q[i];
+	}
+	ans[0] = q[0];
+	vis[q[0]] = 1;
+	int idx;
+	if(vis[1] == 0)
+		idx = 1;
+	else
+		idx = 2;
+	For(i, 0, n) {
+		if(i) {
+			if(q[i] > q[i - 1]) {
+				ans[i] = q[i];
+				vis[q[i]] = 1;
+			} else {
+				while(vis[idx] != 0 && idx < q[i]) {
+					idx++;
+				}
+				if(idx < q[i]) {
+					ans[i] = idx;
+					vis[idx] = 1;
+				} else {
+					cout << -1 << '\n';
+					return;
+				}
+			}
+		}
+	}
+	print(ans);
 }
 
 int main() {

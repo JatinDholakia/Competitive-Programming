@@ -14,7 +14,22 @@ const int mod = 1000000007;
 const int INF = 2000000000;
 
 void solve() {
-	
+	int n, m, k;
+	cin >> n >> m >> k;
+	vector<int> h(n);
+	For(i, 0, n) {
+		cin >> h[i];
+	}
+	For(i, 1, n) {
+		int diff = h[i] - h[i - 1] - k;
+		m -= max(diff, 0);
+		m += min(-min(diff, 0), h[i - 1]);
+		if(m < 0) {
+			cout << "NO" << '\n';
+			return;
+		}
+	}
+	cout << "YES" << '\n';
 }
 
 int main() {

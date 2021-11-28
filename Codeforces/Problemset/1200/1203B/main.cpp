@@ -14,7 +14,25 @@ const int mod = 1000000007;
 const int INF = 2000000000;
 
 void solve() {
-	
+	int n;
+	cin >> n;
+	vector<int> a(4 * n);
+	For(i, 0, 4 * n) {
+		cin >> a[i];
+	}
+	sort(a.begin(), a.end());
+	int i = 0, j = 4 * n - 1;
+	int area = a[i] * a[j];
+	while(i < j) {
+		if(a[i] == a[i + 1] && a[j] == a[j - 1] && a[i] * a[j] == area) {
+			i += 2;
+			j -= 2;
+		} else {
+			cout << "NO" << '\n';
+			return;
+		}
+	}
+	cout << "YES" << '\n';
 }
 
 int main() {

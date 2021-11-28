@@ -14,7 +14,15 @@ const int mod = 1000000007;
 const int INF = 2000000000;
 
 void solve() {
-	
+	int c, m, x;
+	cin >> c >> m >> x;
+	if(x >= min(c, m)) {
+		cout << min(c, m) << '\n';
+	} else {
+		c -= x;
+		m -= x;
+		cout << min({c, m, (c + m) / 3}) + x << '\n';
+	}
 }
 
 int main() {
